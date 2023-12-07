@@ -1,5 +1,9 @@
 ########## Denna fil gäller endast för VG-nivå ##########
 
+
+# Crud delen med routes här
+
+
 from flask import Flask, request
 from dotenv import load_dotenv
 import os
@@ -29,10 +33,24 @@ You probably do not need any new tables - an API is all about interacting with y
 Feel free to add more endpoints if you want.
 """
 
+
+# # does not work
+# @app.route('/')
+# def check():
+#     return 'Hello world'
+
+@app.route("/employees", methods=["GET"])
+def view_listing():
+    db = database.connect_db()
+    return db.all()
+
+
 def add_listing():
+     
     """
     Endpoint to add a new listing
     """
+
 
 def remove_listing():
     """
@@ -40,17 +58,20 @@ def remove_listing():
     """
     pass
 
+
 def listing_detail():
     """
     Endpoint to return a specific listing
     """
     pass
 
+
 def get_all_listings():
     """
     Should return a list of X number of listings based on a LIMIT
     """
     pass
+
 
 def add_category():
     """
@@ -59,12 +80,14 @@ def add_category():
     """
     pass
 
+
 def update_category():
     """
     Endpoint to update a category
     Get updated category details from customer and call db.update_category
     """
     pass
+
 
 def add_broker():
     """
@@ -73,12 +96,14 @@ def add_broker():
     """
     pass
 
+
 def modify_broker():
     """
     Endpoint to modify a broker
     Get updated broker details from customer and call db.update_broker
     """
     pass
+
 
 def add_customer():
     """
@@ -87,6 +112,7 @@ def add_customer():
     """
     pass
 
+
 def remove_customer():
     """
     Endpoint to remove a customer
@@ -94,10 +120,12 @@ def remove_customer():
     """
     pass
 
+
 def get_all_customers():
     """
     Endpoint to list all customer
     """
+
 
 def schedule_appointment():
     """
@@ -106,12 +134,14 @@ def schedule_appointment():
     """
     pass
 
+
 def update_appointment():
     """
     Endpoint to update an existing appointment
     Get appointment details from customer and call db.update_appointment
     """
     pass
+
 
 def cancel_appointment():
     """
@@ -120,6 +150,7 @@ def cancel_appointment():
     """
     pass
 
+
 def list_customer_appointments():
     """
     Endpoint that returns appointments for a specific customer
@@ -127,13 +158,15 @@ def list_customer_appointments():
     """
     pass
 
+
 def favorite_listing():
     """
     Endpoint to let a customer favorite a specific listing
     Should ideally only need a title, it's your choice how to implement it
     """
     pass
-    
+
+
 def unfavorite_listing():
     """
     Endpoint to let a customer unfavorite a specific listing

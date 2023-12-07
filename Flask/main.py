@@ -10,11 +10,13 @@ This file is responsible to interact with the user
 - This file is responsible for showing the menu to the user
 """
 
+
 def add_listing():
     """
     Function to add a new listing
     Get customer input for listing details and call db.create_listing
     """
+
 
 def remove_listing():
     """
@@ -22,6 +24,7 @@ def remove_listing():
     Get listing ID from customer and call db.delete_listing
     """
     pass
+
 
 def display_listing():
     """
@@ -31,12 +34,14 @@ def display_listing():
     """
     pass
 
+
 def add_category():
     """
     Function to add a new category
     Get category details from customer and call db.create_category
     """
     pass
+
 
 def update_category():
     """
@@ -45,12 +50,14 @@ def update_category():
     """
     pass
 
+
 def add_broker():
     """
     Function to add a new broker
     Get broker details from customer and call db.create_broker
     """
     pass
+
 
 def modify_broker():
     """
@@ -59,12 +66,14 @@ def modify_broker():
     """
     pass
 
+
 def add_customer():
     """
     Function to add a new customer
     Get customer details from customer and call db.create_customer
     """
     pass
+
 
 def remove_customer():
     """
@@ -73,12 +82,14 @@ def remove_customer():
     """
     pass
 
+
 def schedule_appointment():
     """
     Function to schedule a viewing appointment
     Get appointment details from customer and call db.create_appointment
     """
     pass
+
 
 def update_appointment():
     """
@@ -87,12 +98,14 @@ def update_appointment():
     """
     pass
 
+
 def cancel_appointment():
     """
     Function to cancel an appointment
     Get appointment ID from customer and call db.remove_appointment
     """
     pass
+
 
 def view_customer_appointments():
     """
@@ -101,13 +114,15 @@ def view_customer_appointments():
     """
     pass
 
+
 def favorite_listing():
     """
     Function to let a customer favorite a specific listing
     Should ideally only need a title, it's your choice how to implement it
     """
     pass
-    
+
+
 def unfavorite_listing():
     """
     Function to let a customer unfavorite a specific listing
@@ -116,11 +131,14 @@ def unfavorite_listing():
     pass
 
 # Main execution logic
+
+
 def main():
     """
     Here, you can add a menu system or command line arguments to call above functions
     """
     pass
+
 
 if __name__ == '__main__':
     db.connect_db()
