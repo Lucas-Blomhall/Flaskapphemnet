@@ -1,4 +1,5 @@
 import psycopg2
+import psycopg2.extras
 from dotenv import load_dotenv
 import os
 
@@ -488,14 +489,14 @@ def delete_customer(id):
 
 
 # Create listing_customer
-def create_appointment(listing_id, customer_id, appointment):
+def create_appointment(listing_id, customer_id, appointments):
     """Creates a new viewing appointment."""
     with connect_db() as connection:
         with connection.cursor() as cur:
             try:
                 cur.execute(
-                    "INSERT INTO listing_customer (listing_id, customer_id, appointment) VALUES (%s, %s)", (
-                        listing_id, customer_id, appointment)
+                    "INSERT INTO listing_customer (listing_id, customer_id, appointments) VALUES (%s, %s, %s)", (
+                        listing_id, customer_id, appointments)
                 )
                 connection.commit()
                 print("Created an appointment in listing_customer successfully")

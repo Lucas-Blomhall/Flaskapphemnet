@@ -400,8 +400,8 @@ def add_listing_customer_route():
     data = request.get_json()
     listing_id = data['listing_id']
     customer_id = data['customer_id']
-    appointment = data['appointment']
-    database.create_appointment(listing_id, customer_id, appointment)
+    appointments = data['appointments']
+    database.create_appointment(listing_id, customer_id, appointments)
     return jsonify({'message': "created listing_customer successfully"}), 201
 
 
@@ -422,7 +422,8 @@ def listing_customer_detail_route(customer_id):
     """
     Endpoint to return all appointments from listing_customer for a specific customer
     """
-    selected_listing_customer = database.view_listing_customer_by_id(customer_id)
+    selected_listing_customer = database.view_listing_customer_by_id(
+        customer_id)
     new_listing_customer = format_listing_customer(selected_listing_customer)
     return jsonify(new_listing_customer), 200
 
@@ -467,6 +468,7 @@ def add_customer_favorute_listing_route():
     Endpoint to add a new customer_favorute_listing
     Get customer_favorute_listing details from customer_favorute_listing and call db.customer_favorute_listing
     """
+
     data = request.get_json()
     listing_id = data['listing_id']
     customer_id = data['customer_id']
@@ -532,3 +534,7 @@ def remove_customer_favorute_listing_route(customer_id, listing_id):
 
 
 # =============================== END ===================================
+
+# app.run(debug=True) default way
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=8080, debug=True)  # bättre sätt
