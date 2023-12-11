@@ -147,7 +147,7 @@ print(f"Table {table_name} exists: {check_if_exists(table_name)}")
 
 
 # Create a listing:
-def create_listing(connection, name, price, description, category_id, broker_id):
+def create_listing(name, price, description, category_id, broker_id):
     """Creates a new listing in the database."""
     # Implement the SQL query to insert a new listing
     with connect_db() as connection:
@@ -164,7 +164,7 @@ def create_listing(connection, name, price, description, category_id, broker_id)
 
 
 # Get all from listing
-def view_listing(connection):
+def view_listing():
     """Retrieves details of a specific listing along with category and broker information."""
     # Implement the SQL query to retrieve listing details with JOIN
     with connect_db() as connection:
@@ -179,7 +179,7 @@ def view_listing(connection):
 
 
 # get listing by id
-def view_listing_by_id(connection, id):
+def view_listing_by_id(id):
     """Retrieves details of a specific listing along with category and broker information."""
     # Implement the SQL query to retrieve listing details with JOIN
     with connect_db() as connection:
@@ -194,7 +194,7 @@ def view_listing_by_id(connection, id):
 
 
 # Update a listing by id
-def update_listing(connection, id, name, price, description, category_id, broker_id):
+def update_listing(id, name, price, description, category_id, broker_id):
     """Updates an existing listing."""
     with connect_db() as connection:
         with connection.cursor() as cur:
@@ -212,7 +212,7 @@ def update_listing(connection, id, name, price, description, category_id, broker
 
 
 # Delete a listing
-def delete_listing(connection, id):
+def delete_listing(id):
     """Deletes a listing from the database."""
     with connect_db() as connection:
         with connection.cursor() as cur:
@@ -231,7 +231,7 @@ def delete_listing(connection, id):
 
 
 # Create Category
-def create_category(connection, name):
+def create_category(name):
     """Creates a new category in the database."""
     with connect_db() as connection:
         with connection.cursor() as cur:
@@ -247,7 +247,7 @@ def create_category(connection, name):
 
 
 # Read all from category:
-def view_category(connection):
+def view_category():
     """Retrieves details of a specific category along with category and broker information."""
     # Implement the SQL query to retrieve listing details with JOIN
     with connect_db() as connection:
@@ -262,7 +262,7 @@ def view_category(connection):
 
 
 # Read a category by id
-def view_category_by_id(connection, id):
+def view_category_by_id(id):
     """Retrieves details of a specific category along with category and broker information."""
     # Implement the SQL query to retrieve category details with JOIN
     with connect_db() as connection:
@@ -277,7 +277,7 @@ def view_category_by_id(connection, id):
 
 
 # Update a category by id
-def update_category(connection, id, name):
+def update_category(id, name):
     """Updates an existing category."""
     with connect_db() as connection:
         with connection.cursor() as cur:
@@ -294,7 +294,7 @@ def update_category(connection, id, name):
 
 
 # Delete a category by id
-def delete_category(connection, id):
+def delete_category(id):
     """Deletes a category from the database."""
     with connect_db() as connection:
         with connection.cursor() as cur:
@@ -316,7 +316,7 @@ def delete_category(connection, id):
 
 
 # Create a broker
-def create_broker(connection, name, email, contact_info):
+def create_broker(name, email, contact_info):
     """Creates a new broker in the database."""
     with connect_db() as connection:
         with connection.cursor() as cur:
@@ -332,7 +332,7 @@ def create_broker(connection, name, email, contact_info):
 
 
 # Read all from broker
-def view_broker(connection):
+def view_broker():
     """Retrieves details of a specific broker along with category and broker information."""
     # Implement the SQL query to retrieve broker details with JOIN
     with connect_db() as connection:
@@ -347,7 +347,7 @@ def view_broker(connection):
 
 
 # Read broker by id
-def view_broker_by_id(connection, id):
+def view_broker_by_id(id):
     """Retrieves details of a specific listing along with category and broker information."""
     # Implement the SQL query to retrieve broker details with JOIN
     with connect_db() as connection:
@@ -362,7 +362,7 @@ def view_broker_by_id(connection, id):
 
 
 # Update a broker by id
-def update_broker(connection, id, name, email, contact_info):
+def update_broker(id, name, email, contact_info):
     """Updates an existing broker."""
     with connect_db() as connection:
         with connection.cursor() as cur:
@@ -379,7 +379,7 @@ def update_broker(connection, id, name, email, contact_info):
 
 
 # Delete broker by id
-def delete_broker(connection, id):
+def delete_broker(id):
     """Deletes a broker from the database."""
     with connect_db() as connection:
         with connection.cursor() as cur:
