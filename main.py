@@ -6,19 +6,26 @@ import requests
 
 # create listing
 def create_listing():
-    movie_data = {
-        "name": "createdhouse",
-        "price": 40000000,
-        "description": "createdhouse",
-        "category_id": 1,
-        "broker_id": 1
+    name = input("What name do you want in your listing?")
+    price = input("What price do you want in your listing?")
+    description = input("What description do you want in your listing?")
+    category_id = input("What category_id do you want in your listing?")
+    broker_id = input("What broker_id do you want in your listing?")
+
+    listing_data = {
+        "name": name,
+        "price": price,
+        "description": description,
+        "category_id": category_id,
+        "broker_id": broker_id
     }
     # Replace with your API URL
-    response = requests.post("http://127.0.0.1:8080/listing", json=movie_data)
+    response = requests.post(
+        "http://127.0.0.1:8080/listing", json=listing_data)
     if response.status_code == 201:
         print("Listing added successfully.")
     else:
-        print("Failed to add movie.")
+        print("Failed to add Listing.")
 
 
 # get listing
@@ -467,10 +474,10 @@ def update_customer_favorute_listing_by_id():
         "favorite_residence": favorite_residence
     }
     # Replace with your API URL
-    customer_id = input("what customer_id do you want to search for?")
-    listing_id = input("what listing_id do you want to search for?")
+    select_customer_id = input("what customer_id do you want to search for?")
+    select_listing_id = input("what listing_id do you want to search for?")
     response = requests.put(
-        f"http://127.0.0.1:8080/customer_favorute_listing/{customer_id}/{listing_id}", json=customer_favorute_listing_data)
+        f"http://127.0.0.1:8080/customer_favorute_listing/{select_customer_id}/{select_listing_id}", json=customer_favorute_listing_data)
     if response.status_code == 200:
         print("customer_favorute_listing updated successfully.")
     else:
@@ -546,7 +553,7 @@ def main():
         print("100. Exit")
 
         choice = input("Enter your choice: ")
-        if choice == "100":  # does not work yet
+        if choice == "100":
             break
 
 # ==================================== Listing calls =======================================================
